@@ -1,0 +1,18 @@
+export const REGIONS = [
+  {label: "KR", value: "KR"},
+  {label: "NA", value: "NA"},
+  {label: "EUW", value: "EUW"},
+  {label: "EUNE", value: "EUNE"},
+  {label: "JP", value: "JP"},
+  {label: "BR", value: "BR"},
+  {label: "LAN", value: "LAN"},
+  {label: "LAS", value: "LAS"},
+  {label: "OCE", value: "OCE"},
+  {label: "RU", value: "RU"},
+  {label: "TR", value: "TR"},
+  {label: "SG", value: "SG"},
+  {label: "PH", value: "PH"},
+  {label: "TW", value: "TW"},
+  {label: "VN", value: "VN"},
+  {label: "TH", value: "TH"},
+];

@@ -1,0 +1,113 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+input {
+  background-color: transparent;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  color: #757f93;
+}
+
+textarea {
+  background-color: transparent;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+textarea::placeholder {
+  color: #757f93;
+}
+
+
+@layer utilities {
+  /* 로그인 버튼 background */
+  .bg-login-btn {
+    background: radial-gradient(100% 103.78% at 50% 50%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 50%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01);
+    box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12) inset;
+  }
+  
+  .bg-G300 {
+    background-image: linear-gradient(to right, #A3FFEC, #5C7CF0);
+  }
+
+  .text-gradient-1 {
+    background: linear-gradient(
+      90deg,
+      #5d7df0 8.5%,
+      #ffffff 51.52%,
+      #a3ffec 91.95%
+    );
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-gradient-2 {
+    background: linear-gradient(180deg, #A3FFEC 0%, #5C7CF0 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .position-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .MGT-scrollbar::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+  };
+
+  .MGT-scrollbar::-webkit-scrollbar-corner {
+      display: none;
+  };
+
+  .MGT-scrollbar::-webkit-scrollbar-track {
+      background-color: transparent;
+      border-radius: 30px;
+  }
+
+  .MGT-scrollbar::-webkit-scrollbar-thumb {
+      background-color: #757F9380;
+      border-radius: 30px;
+  };
+}
+
+
+// 소환사검색 인풋창 자동입력 시 하얀색 뒷배경 삭제 - by.danny
+#input-autofill {
+  /* Change Autocomplete styles in Chrome*/
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  box-shadow: 0 0 0px 1000px #0e1521 inset;
+  transition: background-color 5000s ease-in-out 0s;
+  color: white;
+  }
+}
