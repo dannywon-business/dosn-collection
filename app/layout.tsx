@@ -7,26 +7,31 @@ import localFont from 'next/font/local';
 // libraries
 import clsx from "clsx";
 
+// components
+import Header from './(layout)/Header';
+
 interface RootLayoutProps {
   children: React.ReactNode;
   params: { locale: string }
 };
 
-
 export default async function RootLayout(props: RootLayoutProps) {
   const { children } = props;
+
   return (
     <html
       lang="en"
       className={SpoqaHanSansNeo.className}
     >
       <body className="bg-[#212121]">
-        {children}
+        <Header />
+        <div className="mt-10">
+          {children}
+        </div>
       </body>
     </html>
   );
 };
-
 
 export const metadata: Metadata = {
   title: {

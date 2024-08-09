@@ -11,13 +11,15 @@ import VoteUI from "./VoteUI";
 
 interface Props {
   viewport: string;
+  products: any;
 };
 
 
 
 
+
 const ImageCards = (props: Props) => {
-  const { viewport } = props;
+  const { viewport, products } = props;
 
   // STEP1. viewport 확인해서 size 세팅
   const [cardSize, setCardSize] = useState('');
@@ -29,22 +31,23 @@ const ImageCards = (props: Props) => {
 
   // 이미지 클릭 시 투표 모달창 open
   const [voteModal, setVoteModal] = useState(false);
-  const [clickedImg, setClickedImg] = useState<null | string>(null);
-  const handleClickImage = (index: string) => {
+  const [clickedProduct, setClickedProduct] = useState<null | string>(null);
+  
+  const handleClickImage = (product: any) => {
     setVoteModal(true);
-    setClickedImg(index);
+    setClickedProduct(product);
   };
 
   return (
     <div className="flex flex-wrap gap-5">
-      {arr.map((index) => {
+      {products.map((prod: any) => {
         return (
           <div
-            key={index}
+            key={prod.id}
             className={clsx("w-[350px] h-max p-5 border border-BD rounded-md cursor-pointer")}
-            onClick={() => handleClickImage(index)}
+            onClick={() => handleClickImage(prod)}
           >
-            <Image src={`/assets/landing/김한기_${index}.jpg`} width={308} height={308} alt="" />
+            <Image src={prod.imgUrl} width={308} height={308} alt="" />
 
             <div className="w-full text-white text-xs font-medium mt-2.5">
               <p className="">설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1</p>
@@ -59,7 +62,7 @@ const ImageCards = (props: Props) => {
       >
         <VoteUI
           viewport={viewport}
-          imgIndex={clickedImg}
+          clickedProduct={clickedProduct}
         />
       </BasicModal>
     </div>

@@ -6,13 +6,14 @@ import { useState, useEffect, useRef } from "react";
 
 interface Props {
   viewport: string;
-  imgIndex: string
+  clickedProduct: any;
 };
 const VoteUI = (props: Props) => {
-  const { viewport, imgIndex } = props;
+  const { viewport, clickedProduct } = props;
 
   const [cardSize, setCardSize] = useState('w-[350px]');
   const [imgSize, setImgSize] = useState(308);
+  
   useEffect(() => {
     viewport == 'desktop' && (
       setCardSize('w-[650px]'), 
@@ -21,15 +22,16 @@ const VoteUI = (props: Props) => {
   }, [viewport]);
 
 
-  const handleVote = () => {
-
-  }
+  const handleVote = (score: number) => {
+    
+  };
+  
 
   return (
-    <div className="flex flex-col gap-1.5">
-      <div className={clsx("p-5 border border-BD rounded-md cursor-pointer", cardSize)}>
+    <div className="bg-[#212121] p-5 rounded-md">
+      <div className={clsx("p-5 border border-BD rounded-md", cardSize)}>
         <Image
-          src={`/assets/landing/김한기_${imgIndex}.jpg`}
+          src={clickedProduct.imgUrl}
           width={imgSize}
           height={imgSize}
           alt=""
@@ -39,17 +41,20 @@ const VoteUI = (props: Props) => {
         </p>
       </div>
 
-      <div className="flex justify-between">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => {
+      <div className="flex items-center justify-between mt-5">
+        <p className={clsx("text-white", viewport == 'mobile' ? 'text-sm' : 'text-base')}>{`작품 점수`}</p>
+
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((score) => {
           return (
             <button 
-              key={num} 
+              key={score} 
+              onClick={() => handleVote(score)}
               className={clsx(
-                "bg-white hover:bg-[#212121] text-[#212121] hover:text-white",
-                viewport == 'mobile' ? 'w-5 h-5 text-base' : 'w-10 h-10 text-xl'
+                "bg-white hover:bg-B200 text-[#212121] hover:text-white rounded-md",
+                viewport == 'mobile' ? 'w-5 h-5 text-sm' : 'w-10 h-10 text-xl'
               )}
             >
-              {num}
+              {score}
             </button>
           )
         })}
