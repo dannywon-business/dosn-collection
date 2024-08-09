@@ -1,6 +1,7 @@
 // libraries
 import clsx from "clsx";
 import { promises as fs } from 'fs';
+import path from "path";
 
 import ImageCards from "./components/ImageCards";
 
@@ -34,9 +35,14 @@ const getProducts = async () => {
 export default async function LandingPage(props: any) {
   const { viewport } = props.searchParams;
 
-  const file = await fs.readFile(process.cwd() + '/products.json', 'utf-8');
-  const products = JSON.parse(file)
-  console.log('file', JSON.parse(file));
+  const filePath = path.join(process.cwd(), 'products.json');
+  const jsonData = await fs.readFile(filePath, 'utf-8');
+  console.log('1. filePath', filePath);
+  console.log('2. jsonData', jsonData);
+  
+  
+  const products = JSON.parse(jsonData);
+  console.log('3. products', products);
 
   // const products = await getProducts();
 
