@@ -34,7 +34,7 @@ const getProducts = async () => {
 export default async function LandingPage(props: any) {
   const { viewport } = props.searchParams;
 
-  const file = await fs.readFile(process.cwd() + '/temp/products.json', 'utf-8');
+  const file = await fs.readFile(process.cwd() + '/products.json', 'utf-8');
   const products = JSON.parse(file)
   console.log('file', JSON.parse(file));
 

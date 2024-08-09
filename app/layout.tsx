@@ -35,8 +35,8 @@ export default async function RootLayout(props: RootLayoutProps) {
 
 export const metadata: Metadata = {
   title: {
-    template: 'Dalda | %s',
-    default: 'Dalda'
+    template: 'DOSN | %s',
+    default: 'DOSN'
   },
   description: '프로 출신 아카데미 코치들이 연구한 개인 맞춤 게임 코칭 데이터로 내 게임의 약점을 진단하고 맞춤 팁을 추천합니다.',
 };
