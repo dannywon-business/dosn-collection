@@ -25,14 +25,14 @@ const Header = (props: any) => {
     <div className="sticky top-0 z-20 w-full lg:px-[150px] bg-[#252525]">
       <div className="h-[60px] mx-auto flex justify-center items-center lg:justify-between">
 
-        <div className="flex items-center gap-24">
+        <div className="flex items-center gap-10 lg:gap-24">
           {/* 1. 로고 이미지 */}
           <Link href={`/`}>
             <p className="text-white text-4xl font-bold">DOSN</p>
           </Link>
 
           {/* 2. 메뉴 */}
-          <div className="relative flex items-center gap-10">
+          <div className="relative flex items-center gap-2.5 lg:gap-10">
             {HEADER_MENU.map((menu) => {
               return (
                 <LinkButton
@@ -78,8 +78,8 @@ interface HeaderMenu {
   };
 };
 const HEADER_MENU: HeaderMenu[] = [
-  { id: 1, name: '작품 랭킹', href: { pathname: '/prod-rank' } },
-  // { id: 2, name: '', href: { pathname: '/' } },
+  { id: 1, name: '투표', href: { pathname: '/' } },
+  { id: 2, name: '작품 랭킹', href: { pathname: '/prod-rank' } },
 ];
 
 export default Header;

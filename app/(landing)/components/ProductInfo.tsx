@@ -36,7 +36,7 @@ const ProductInfo = (props: Props) => {
   };
 
   return (
-    <div className="flex flex-wrap gap-5">
+    <div className="flex flex-wrap gap-5 justify-center">
       {/* 작품 정보 */}
       {products.map((prod: any, index: number) => (
         <ImageCard
