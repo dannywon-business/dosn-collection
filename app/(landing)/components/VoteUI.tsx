@@ -26,7 +26,7 @@ const VoteUI = (props: Props) => {
 
   useEffect(() => {
     viewport == 'desktop' && (
-      setCardSize('w-[650px]'),
+      setCardSize('w-[550px]'),
       setImgSize(608)
     );
   }, [viewport]);
@@ -61,6 +61,7 @@ const VoteUI = (props: Props) => {
           height={imgSize}
           alt=""
         />
+
         {/* <p className="text-white text-xs font-medium mt-2.5">
         </p> */}
       </div>

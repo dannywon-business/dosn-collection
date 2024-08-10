@@ -87,18 +87,17 @@ const ImageCard = (props: any) => {
       >
         {/* 이미 투표한 작품에 표시UI 달아주기 */}
         {!isRankPage && votedProd && votedProd.some((voted: any) => voted.prodIdx == product.prodIdx) && (
-          <div className="absolute top-0 left-0 w-full h-full flex-center bg-black/80">
+          <div className="absolute top-0 left-0 w-full h-full flex-center bg-black/60">
             <div className={clsx("w-10 h-14 border-b-[5px] border-r-[5px] rotate-45")} />
           </div>
         )}
-
-        <Image
+        <img src={product.imgUrl} alt="" />
+        {/* <Image
           src={product.imgUrl}
-          width={308}
-          height={308}
+          fill
+          height={300}
           alt=""
-          style={{ width: 308, height: 308 }}
-        />
+        /> */}
 
         {isRankPage && (
           <div className="w-full text-black text-sm font-medium mt-2.5">
