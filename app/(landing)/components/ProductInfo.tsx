@@ -74,16 +74,20 @@ const ImageCard = (props: any) => {
   return (
     <div>
       {isRankPage && (
-        <p className="text-white text-xl">{`${ranking + 1}등`}</p>
+        <p className="text-white text-xl">{`Best ${ranking + 1}`}</p>
       )}
 
       <div
-        className={clsx("relative w-[350px] h-max p-5 border border-BD rounded-md", !isRankPage && 'cursor-pointer')}
+        className={clsx(
+          "relative w-[350px] h-max p-5 border border-BD bg-white rounded-md", 
+          !isRankPage && 'cursor-pointer',
+        )}
         onClick={() => onClickHandler(product)}
       >
         {/* 이미 투표한 작품에 표시UI 달아주기 */}
         {!isRankPage && votedProd && votedProd.some((voted: any) => voted.prodIdx == product.prodIdx) && (
-          <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-P300 rounded-md" />
+          <div className=""></div>
+          // <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-P300 rounded-md" />
         )}
 
         <Image
@@ -94,8 +98,12 @@ const ImageCard = (props: any) => {
           style={{ width: 308, height: 308 }}
         />
 
-        {/* <div className="w-full text-white text-xs font-medium mt-2.5">
-              </div> */}
+        {isRankPage && (
+          <div className="w-full text-black text-sm font-medium mt-2.5">
+            <p className="">{`참여자: ${product.howManyScored}`}</p>
+            <p className="">{`평균 점수: ${product.score / product.howManyScored}`}</p>
+          </div>
+        )}
       </div>
     </div>
   );

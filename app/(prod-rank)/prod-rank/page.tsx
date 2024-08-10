@@ -9,7 +9,6 @@ export default async function LandingPage(props: any) {
   const { viewport } = props.searchParams;
 
   const bestProd = await getBestProducts('김한기', 5);
-  console.log('bestProd', bestProd);
   
   return (
     <div className={clsx(

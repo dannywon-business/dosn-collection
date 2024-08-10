@@ -54,7 +54,7 @@ const VoteUI = (props: Props) => {
 
   return (
     <div className="bg-[#212121] p-5 rounded-md">
-      <div className={clsx("p-5 border border-BD rounded-md", cardSize)}>
+      <div className={clsx("p-5 border border-BD rounded-md bg-white", cardSize)}>
         <Image
           src={clickedProduct.imgUrl}
           width={imgSize}
@@ -66,7 +66,7 @@ const VoteUI = (props: Props) => {
       </div>
 
       <div className="flex items-center justify-between mt-5">
-        <p className={clsx("text-white", viewport == 'mobile' ? 'text-sm' : 'text-base')}>{`작품 점수`}</p>
+        <p className={clsx("text-white", viewport == 'mobile' ? 'text-sm' : 'text-base')}>{`나의 점수`}</p>
 
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((score) => {
           return (

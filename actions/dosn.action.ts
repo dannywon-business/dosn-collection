@@ -33,7 +33,6 @@ export const getBestProducts = async (authorName: string, limit: number) => {
 
 export const scoreProduct = async (prodIdx: number, score: number) => {
   const path = '/dosn/score-product';
-  console.log('scoreProduct 함수 실행')
 
   const updateResult = await fetch(`${MGT_API_BASE_URI}${path}`, {
     method: "POST",

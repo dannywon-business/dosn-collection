@@ -38,7 +38,7 @@ const Header = (props: any) => {
                 <LinkButton
                   key={menu.id}
                   href={menu.href}
-                  wrapperStyle="flex items-center h-10 px-5 rounded-md hover:bg-B500"
+                  wrapperStyle="flex items-center h-10 px-5 rounded-md"
                   text={menu.name}
                   textStyle={clsx("text-lg font-medium", currentPage == menu.id ? 'text-white' : 'text-B100')}
                 />
@@ -79,7 +79,7 @@ interface HeaderMenu {
 };
 const HEADER_MENU: HeaderMenu[] = [
   { id: 1, name: '투표', href: { pathname: '/' } },
-  { id: 2, name: '작품 랭킹', href: { pathname: '/prod-rank' } },
+  { id: 2, name: 'Best 5', href: { pathname: '/prod-rank' } },
 ];
 
 export default Header;
