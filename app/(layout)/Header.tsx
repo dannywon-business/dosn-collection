@@ -17,10 +17,13 @@ const Header = (props: any) => {
   const pathname = usePathname();
   const [currentPage, setCurrentPage] = useState<null | number>(null);
 
-  return (
-    <div className="sticky z-0 top-0 w-full px-[150px] bg-[#252525]">
-      <div className="h-[60px] mx-auto flex justify-center lg:justify-between items-center">
+  useEffect(() => {
+    setCurrentPage(HEADER_MENU.find((menu) => menu.href.pathname == pathname)?.id);
+  }, [pathname]);
 
+  return (
+    <div className="sticky top-0 z-20 w-full lg:px-[150px] bg-[#252525]">
+      <div className="h-[60px] mx-auto flex justify-center items-center lg:justify-between">
 
         <div className="flex items-center gap-24">
           {/* 1. 로고 이미지 */}
@@ -29,7 +32,7 @@ const Header = (props: any) => {
           </Link>
 
           {/* 2. 메뉴 */}
-          {/* <div className="relative flex items-center gap-10">
+          <div className="relative flex items-center gap-10">
             {HEADER_MENU.map((menu) => {
               return (
                 <LinkButton
@@ -41,7 +44,7 @@ const Header = (props: any) => {
                 />
               )
             })}
-          </div> */}
+          </div>
         </div>
 
         {/* 3. 로그인 / 회원가입 버튼 */}
@@ -75,7 +78,7 @@ interface HeaderMenu {
   };
 };
 const HEADER_MENU: HeaderMenu[] = [
-  // { id: 1, name: '전시', href: { pathname: '/ranking-system' } },
+  { id: 1, name: '작품 랭킹', href: { pathname: '/prod-rank' } },
   // { id: 2, name: '', href: { pathname: '/' } },
 ];
 

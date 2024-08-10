@@ -14,22 +14,19 @@ interface Props {
   products: any;
 };
 
-
-
-
-
 const ImageCards = (props: Props) => {
   const { viewport, products } = props;
 
-  // STEP1. viewport 확인해서 size 세팅
-  const [cardSize, setCardSize] = useState('');
-  const [imgSize, setImgSize] = useState(0);
+  // # localStorage 확인해서 이미 투표한 작품 state에 저장
+  const [votedProd, setVotedProd] = useState(null);
+  
+  useEffect(() => {
+    const storageProd = JSON.parse(localStorage.getItem('prodInfo') || '[]');
+    if(storageProd) setVotedProd(storageProd);
+  }, [products])
 
-  const arr = new Array(14).fill(0).map((_, index) => {
-    return (index + 1).toString().padStart(2, '0');
-  });
 
-  // 이미지 클릭 시 투표 모달창 open
+  // # 이미지 클릭 시 투표 모달창 open
   const [voteModal, setVoteModal] = useState(false);
   const [clickedProduct, setClickedProduct] = useState<null | string>(null);
   
@@ -43,15 +40,26 @@ const ImageCards = (props: Props) => {
       {products.map((prod: any) => {
         return (
           <div
-            key={prod.id}
-            className={clsx("w-[350px] h-max p-5 border border-BD rounded-md cursor-pointer")}
+            key={prod.prodIdx}
+            className={clsx("relative w-[350px] h-max p-5 border border-BD rounded-md cursor-pointer")}
             onClick={() => handleClickImage(prod)}
           >
-            <Image src={prod.imgUrl} width={308} height={308} alt="" />
 
-            <div className="w-full text-white text-xs font-medium mt-2.5">
-              <p className="">설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1설명 1</p>
-            </div>
+            {/* 이미 투표한 작품에 표시UI 달아주기 */}
+            {votedProd && votedProd.some((voted: any) => voted.prodIdx == prod.prodIdx) && (
+              <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-P300 rounded-md" />
+            )}
+
+            <Image 
+              src={prod.imgUrl} 
+              width={308} 
+              height={308} 
+              alt="" 
+              style={{ width: 308, height: 308 }}
+            />
+          
+            {/* <div className="w-full text-white text-xs font-medium mt-2.5">
+            </div> */}
           </div>
         )
       })}
@@ -63,6 +71,8 @@ const ImageCards = (props: Props) => {
         <VoteUI
           viewport={viewport}
           clickedProduct={clickedProduct}
+          setVoteModal={setVoteModal}
+          votedProd={votedProd}
         />
       </BasicModal>
     </div>

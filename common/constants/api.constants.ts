@@ -1,0 +1,1 @@
+export const MGT_API_BASE_URI = `${process.env.NEXT_PUBLIC_MGT_API_BASE_URI}/v1`;

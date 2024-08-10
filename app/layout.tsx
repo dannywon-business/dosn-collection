@@ -25,7 +25,7 @@ export default async function RootLayout(props: RootLayoutProps) {
     >
       <body className="bg-[#212121]">
         <Header />
-        <div className="mt-10">
+        <div className="my-10">
           {children}
         </div>
       </body>
