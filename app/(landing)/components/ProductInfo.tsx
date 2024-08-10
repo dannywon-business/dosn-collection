@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 
 import BasicModal from "@/common/components/modal/BasicModal";
 import VoteUI from "./VoteUI";
+import BasicCheckIcon from "@/common/components/icon/BasicCheckIcon";
 
 
 interface Props {
@@ -79,15 +80,16 @@ const ImageCard = (props: any) => {
 
       <div
         className={clsx(
-          "relative w-[350px] h-max p-5 border border-BD bg-white rounded-md", 
+          "relative w-[350px] h-max p-5 bg-white rounded-md",
           !isRankPage && 'cursor-pointer',
         )}
         onClick={() => onClickHandler(product)}
       >
         {/* 이미 투표한 작품에 표시UI 달아주기 */}
         {!isRankPage && votedProd && votedProd.some((voted: any) => voted.prodIdx == product.prodIdx) && (
-          <div className=""></div>
-          // <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-P300 rounded-md" />
+          <div className="absolute top-0 left-0 w-full h-full flex-center bg-black/80">
+            <div className={clsx("w-10 h-14 border-b-[5px] border-r-[5px] rotate-45")} />
+          </div>
         )}
 
         <Image

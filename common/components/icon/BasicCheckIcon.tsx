@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 interface Props {
   size: string;
-  color: string
+  color?: string
 };
 const BasicCheckIcon = (props: Props) => {
   const { size, color } = props
