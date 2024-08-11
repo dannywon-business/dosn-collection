@@ -59,7 +59,7 @@ const VoteUI = (props: Props) => {
       </div>
 
       <div className="flex items-center justify-between mt-5">
-        <p className={clsx("text-white", viewport == 'mobile' ? 'text-sm' : 'text-base')}>{`나의 점수`}</p>
+        <p className={clsx("text-white", viewport == 'mobile' ? 'text-sm' : 'text-base')}>{`나의 선호도`}</p>
 
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((score) => {
           return (
