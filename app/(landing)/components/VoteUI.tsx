@@ -35,18 +35,18 @@ const VoteUI = (props: Props) => {
   const handleVote = (score: number) => {
     // STEP1. 사용자가 투표한 작품은 localStorage에 저장 (중복 투표 방지)
     localStorage.setItem('prodInfo', JSON.stringify([
-      ...votedProd?.filter((prev: any) => prev.prodIdx != clickedProduct.prodIdx), 
+      ...votedProd?.filter((prev: any) => prev.prodIdx != clickedProduct.prodIdx),
       { prodIdx: clickedProduct.prodIdx, score }
     ]));
 
     const prevScore = votedProd?.find((prev: any) => prev.prodIdx == clickedProduct.prodIdx)?.score;
 
-    if(prevScore) {
+    if (prevScore) {
       rescoreProduct(clickedProduct.prodIdx, prevScore, score)
     } else {
       scoreProduct(clickedProduct.prodIdx, score);
     };
-    
+
     setVoteModal(false);
   };
 
@@ -55,15 +55,7 @@ const VoteUI = (props: Props) => {
   return (
     <div className="bg-[#212121] p-5 rounded-md">
       <div className={clsx("p-5 border border-BD rounded-md bg-white", cardSize)}>
-        <Image
-          src={clickedProduct.imgUrl}
-          width={imgSize}
-          height={imgSize}
-          alt=""
-        />
-
-        {/* <p className="text-white text-xs font-medium mt-2.5">
-        </p> */}
+        <img src={clickedProduct.imgUrl} alt="" />
       </div>
 
       <div className="flex items-center justify-between mt-5">
