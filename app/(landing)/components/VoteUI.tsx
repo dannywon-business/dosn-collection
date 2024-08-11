@@ -35,7 +35,7 @@ const VoteUI = (props: Props) => {
   const handleVote = (score: number) => {
     // STEP1. 사용자가 투표한 작품은 localStorage에 저장 (중복 투표 방지)
     localStorage.setItem('prodInfo', JSON.stringify([
-      ...votedProd.filter((prev: any) => prev.prodIdx != clickedProduct.prodIdx), 
+      ...votedProd?.filter((prev: any) => prev.prodIdx != clickedProduct.prodIdx), 
       { prodIdx: clickedProduct.prodIdx, score }
     ]));
 

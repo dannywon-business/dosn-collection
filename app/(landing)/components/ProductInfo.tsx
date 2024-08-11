@@ -20,11 +20,18 @@ const ProductInfo = (props: Props) => {
   const { viewport, products, isRankPage } = props;
 
   // # localStorage 확인해서 이미 투표한 작품 state에 저장
-  const [votedProd, setVotedProd] = useState(null);
+  const [votedProd, setVotedProd] = useState([]);
 
   useEffect(() => {
-    const storageProd = JSON.parse(localStorage.getItem('prodInfo') || '[]');
-    if (storageProd) setVotedProd(storageProd);
+    const scoredProd = products.filter((prod: any) => prod.score != null);
+
+    if (scoredProd.length == 0) {
+      localStorage.removeItem('prodInfo');
+
+    } else {
+      const storageProd = JSON.parse(localStorage.getItem('prodInfo') || '[]');
+      storageProd && setVotedProd(storageProd);
+    };
   }, [products]);
 
   // # 이미지 클릭 시 투표 모달창 open
@@ -92,12 +99,6 @@ const ImageCard = (props: any) => {
           </div>
         )}
         <img src={product.imgUrl} alt="" />
-        {/* <Image
-          src={product.imgUrl}
-          fill
-          height={300}
-          alt=""
-        /> */}
 
         {isRankPage && (
           <div className="w-full text-black text-sm font-medium mt-2.5">
