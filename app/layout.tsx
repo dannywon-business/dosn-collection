@@ -43,7 +43,10 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   width: 'device-width',
-  userScalable: false,
+  userScalable: true,
+  initialScale: 1,
+  // minimumScale: .5,
+  // maximumScale: 1.2,
 };
 
 // local 폰트 적용
