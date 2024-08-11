@@ -103,7 +103,7 @@ const ImageCard = (props: any) => {
         {isRankPage && (
           <div className="w-full text-black text-sm font-medium mt-2.5">
             <p className="">{`참여자: ${product.howManyScored}`}</p>
-            <p className="">{`평균 점수: ${product.score / product.howManyScored}`}</p>
+            <p className="">{`평균 점수: ${Math.round(product.score / product.howManyScored * 100) / 100}`}</p>
           </div>
         )}
       </div>
